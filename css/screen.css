@@ -15,6 +15,14 @@
   --global-html-color: var(--global-color-front);
   --global-html-backgroundColor: var(--global-color-back);
   --global-selection-backgroundColor: var(--global-color-front);
+  --global-input-backgroundColor: White;
+    --global-input-color: var(--global-color-neutral-xxxx-dark);
+    --global-input-borderColor: var(--global-color-neutral-xxx-light);
+    --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+    --global-input-focus-borderColor: var(--global-color-alpha);
+    --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+    /* background-color: var(--global-input-background-color); */
+    color: var(--global-input-color);
 }
 
 /*------------------------------------*\
@@ -50,8 +58,15 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-}
+}div{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /*center*/
+  justify-content: center;
+  align-items: center;
 
+}
 /*
 * Remove text-shadow in selection highlight:
 * https://twitter.com/miketaylr/status/12228805301
@@ -145,7 +160,10 @@ body {
   --c-robot-animation-timing-function: ease-in-out;
   --c-robot-animation-iteration-count: infinite;
   --c-robot-animation-direction: alternate;
+  animation-play-state: running;
   fill: var(--global-color-front);
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .c-robot__shadow{
@@ -206,6 +224,206 @@ body {
 
 .c-play-icon--pause {}
 
+.c-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  border: var(--global-borderWidth) solid var(--global-input-borderColor);
+  border-radius: var(--global-borderRadius);
+  color: var(--global-input-color);
+  background-color: var(--global-input-background-color);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: calc(var(--global-baseline) * 3);
+  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+  outline: none;
+  transition: border var(--global-transition-timing-alpha);
+  margin-top: 50px;
+
+}
+
+.c-input:hover {
+  border-color: var(--global-input-hover-borderColor);
+}
+
+.c-input:focus,
+.c-input:active {
+  border-color: var(--global-color-alpha);
+  box-shadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+}
+
+/* option input for checkboxes and radio buttons */
+
+.c-option {
+  margin-right: var(--global-whitespace-sm);
+}
+
+/*
+    Component: Label
+    ---
+    Class to put on all form labels
+*/
+
+.c-label {
+  margin-bottom: 0;
+  font-size: 14px;
+  padding-bottom: var(--global-whitespace-xs);
+  line-height: calc(var(--global-baseline) * 2);
+  color: var(--global-color-neutral-xx-dark);
+}
+
+.c-label--option {
+  padding-bottom: 0;
+}
+
+/*
+    Component: Button
+    ---
+    Class to put on form buttons or
+*/
+
+.c-button {
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: var(--global-borderRadius);
+  border: var(--global-borderWidth) solid var(--global-color-alpha-dark);
+  background-color: var(--global-color-alpha);
+  color: #fff;
+  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+  line-height: calc(var(--global-baseline) * 3);
+  width: 100%; 
+  outline: none;
+  transition: all var(--global-transition-timing-alpha);
+}
+
+.c-button:hover {
+  background-color: var(--global-color-alpha-light);
+}
+
+.c-button:focus {
+  box-shadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+}
+
+.c-button:active {
+  background-color: var(--global-color-alpha-dark);
+  box-shadow: none;
+}
+
+
+.c-option--hidden:checked+label svg {
+  /* background-color: red; */
+  display: block;
+}
+
+.c-custom-option__fake-input {
+  /* opacity: 0; */
+
+  display: flex;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--global-borderRadius);
+  border: solid var(--global-borderWidth) var(--global-input-borderColor);
+  margin-right: 8px;
+
+
+}
+
+.c-custom-option__fake-input:hover {
+  border-color: #3385FF;
+  box-shadow: #81ADF0 0px 0px 0px 3px;
+
+}
+
+.c-custom-option__fake-input:focus {
+
+  border-color: #3385FF;
+  box-shadow: #81ADF0 0px 0px 0px 3px;
+
+}
+
+.c-custom-option__fake-input:active {
+  border-color: #3385FF;
+  box-shadow: #81ADF0 0px 0px 0px 3px;
+
+}
+
+.c-custom-option__fake-input--checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black
+  
+
+}
+
+.c-custom-option__fake-input--radio {
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-custom-option {
+  display: flex;
+
+}
+
+.c-custom-option__fake-input--checkbox .c-custom-option__symbol {
+  width: 10px;
+  height: 10px;
+  fill: var(--global-color-alpha);
+  opacity: 0;
+  border: solid 1px var(--global-input-borderColor);
+  
+
+}
+
+.c-custom-option__fake-input--radio .c-custom-option__symbol {
+  opacity: 0;
+  height: 6px;
+  width: 6px;
+  border-radius: 100%;
+  border: solid 1px var(--global-input-borderColor);
+  background-color: var(--global-color-alpha);
+
+}
+
+.c-option--hidden:checked+.c-custom-option {}
+
+.c-option--hidden:checked+.c-custom-option .c-custom-option__symbol {
+  /* border-radius: var(--global-borderRadius); */
+  /* border: solid var(--global-borderWidth) var(--global-color-neutral-xxx-light); */
+  /* fill: blue; */
+  opacity: 1;
+  
+  
+}
+/* .c-option--hidden:checked +label +.c-robot--css-anim #Robot{
+  animation-play-state: paused;
+}
+.c-option--hidden:checked+label+.c-robot--css-anim #Shadow {
+  animation-play-state: paused;
+} */
+
+body:has(:checked ) .c-robot--css-anim #Robot{
+  animation-play-state: paused;
+ 
+}
+body:has(:checked ) .c-robot--css-anim #Shadow {
+  animation-play-state: paused;
+}
+
+.c-option-list {
+  margin-bottom: 24px;
+}
+
+.c-option-list__item {
+  margin-bottom: 12px;
+
+}
+
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
@@ -234,6 +452,7 @@ body {
   animation-timing-function: var(--c-robot-animation-timing-function);
   animation-iteration-count: var(--c-robot-animation-iteration-count);
   animation-direction: var(--c-robot-animation-direction) ;}
+  
 .c-robot--css-anim #Robot{
   animation-name: robotHover;
   animation-duration: var(--c-robot-animation-duration);

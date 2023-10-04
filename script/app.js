@@ -46,7 +46,7 @@ tl.to(
 tl.to(
   '#Arm-right',
   {
-    rotate: 2,
+    rotate: 3,
   },
   '<'
 );
