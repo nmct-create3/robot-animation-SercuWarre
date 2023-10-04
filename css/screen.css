@@ -240,7 +240,7 @@ body {
   animation-timing-function: var(--c-robot-animation-timing-function);
   animation-iteration-count: var(--c-robot-animation-iteration-count);
   animation-direction: var(--c-robot-animation-direction);
-
+}
 
 /*
     Print styles.
