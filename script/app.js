@@ -9,6 +9,10 @@ let tl = gsap.timeline({
 tl.set('#Shadow', {
   transformOrigin: '50% 100%',
 });
+tl.set('#Fire', {
+  transformOrigin: '50% 100%',
+});
+
 
 tl.fromTo(
   '#Robot',
@@ -22,6 +26,34 @@ tl.fromTo(
   '#Shadow',
   {
     scale: 0.75,
+  },
+  '<'
+);
+tl.to(
+  '#Fire',
+  {
+    scale: 1.1,
+  },
+  '<'
+);
+tl.to(
+  '#Torso',
+  {
+    y: -1.5,
+  },
+  '<'
+);
+tl.to(
+  '#Arm-right',
+  {
+    rotate: 2,
+  },
+  '<'
+);
+tl.to(
+  '#Arm-left',
+  {
+    rotate: -2,
   },
   '<'
 );
