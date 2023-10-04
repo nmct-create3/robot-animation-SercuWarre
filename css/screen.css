@@ -241,6 +241,23 @@ body {
   animation-iteration-count: var(--c-robot-animation-iteration-count);
   animation-direction: var(--c-robot-animation-direction);
 }
+.loading {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 0;
+  animation: load 3s linear infinite;
+  transform: rotate(270deg);
+  transform-origin: center;
+}
+
+@keyframes load {
+  from {
+    stroke-dashoffset: 500;
+  }
+
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
 
 /*
     Print styles.
